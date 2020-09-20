@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Finapp.WindowsClient": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

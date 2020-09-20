@@ -1,0 +1,24 @@
+﻿<Window x:Class="Finapp.WindowsClient.FinancialStatusesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="FinancialStatusesWindow" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="RefreshButton" Click="RefreshButton_Click" Margin="0,2,0,2">Refresh</Button>
+            <Button x:Name="AddButton" Margin="0,2,0,2" Click="AddButton_Click">Add</Button>
+            <wpf:CartesianChart Series="{Binding SeriesCollection}" Height="200" Name="StatusChart" />
+            <DataGrid x:Name="FinancialStatusesDataGrid" ItemsSource="{Binding Statuses}" CanUserAddRows="False" AutoGenerateColumns="False" CanUserDeleteRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Date}" Header="Date"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Source}" Header="Source"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Amount}" Header="Amount"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>
